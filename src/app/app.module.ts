@@ -5,6 +5,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RouterModule } from '@angular/router';
 import { routes } from 'src/routes';
 import { UserViewComponent } from './components/user-view/user-view.component';
+import { UserService } from './services/user.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -15,9 +17,10 @@ import { UserViewComponent } from './components/user-view/user-view.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
-  bootstrap: [AppComponent, LoginComponent]
+  providers: [UserService],
+  bootstrap: [AppComponent, LoginComponent, UserViewComponent]
 })
 export class AppModule { }

@@ -1,1 +1,24 @@
-<p>user-view works!</p>
+<table *ngIf="users">
+    <thead>
+      <tr>
+        <th>LastName</th>
+        <th>FirstName</th>
+        <th>Email</th>
+        <th>Password</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.LastName }}</td>
+        <td>{{ user.FirstName }}</td>
+        <td>{{ user.Email }}</td>
+        <td>{{ user.Password }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="users">
+    <button id="addUserButton" >Add User</button>
+    <button id="modifyUserButton" >Modify User</button>
+    <button id="deleteUserButton">Delete User</button>
+  </div>
+  
