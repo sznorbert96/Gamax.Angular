@@ -1,0 +1,43 @@
+<div class="card-header bg-primary text-white">Select user</div>
+        <div class="card-body">
+          <select class="form-control" [(ngModel)]="selectedUser" (ngModelChange)="onSelectUser($event)">
+            <option *ngFor="let user of users" [ngValue]="user">{{ user.firstName + ' ' + user.lastName }}</option>
+          </select><br>
+
+<button type="submit" *ngIf="!selectedUser" class="btn btn-primary btn-block" (click)="close()">Close dialog</button>
+
+<div class="container mt-5" *ngIf="selectedUser">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header bg-primary text-white">Update</div>
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text"  id="firstName" name="firstName" class="form-control" required [(ngModel)] ="selectedUser.firstName">
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" name="lastName" class="form-control" required [(ngModel)] ="selectedUser.lastName">
+            </div>
+            <div class="form-group">
+              <label for="birthDate">Birth Date</label>
+              <input type="text" id="birthDate" name="birthDate" class="form-control" required [(ngModel)] ="selectedUser.birthDate">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" id="email" name="email" class="form-control" required [(ngModel)] ="selectedUser.email">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" class="form-control" required [(ngModel)] ="selectedUser.password">
+            </div><br>
+            <button type="submit" class="btn btn-primary btn-block" (click)="updateUser()">Update User</button>
+            <button type="submit" class="btn btn-primary btn-block" (click)="close()">Close dialog</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

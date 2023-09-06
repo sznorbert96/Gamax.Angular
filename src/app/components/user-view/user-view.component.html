@@ -1,24 +1,25 @@
-<table *ngIf="users">
-    <thead>
-      <tr>
-        <th>LastName</th>
-        <th>FirstName</th>
-        <th>Email</th>
-        <th>Password</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of users">
-        <td>{{ user.LastName }}</td>
-        <td>{{ user.FirstName }}</td>
-        <td>{{ user.Email }}</td>
-        <td>{{ user.Password }}</td>
-      </tr>
-    </tbody>
-  </table>
-  <div *ngIf="users">
-    <button id="addUserButton" >Add User</button>
-    <button id="modifyUserButton" >Modify User</button>
-    <button id="deleteUserButton">Delete User</button>
-  </div>
-  
+<table *ngIf="usersCount() > 0" [(ngModel)] = "users">
+  <thead>
+    <tr>
+      <th>UserId</th>
+      <th>LastName</th>
+      <th>FirstName</th>
+      <th>BirthDate</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.userId }}</td>
+      <td>{{ user.firstName }}</td>
+      <td>{{ user.lastName }}</td>
+      <td>{{ user.birthDate }}</td>
+      <td>{{ user.email }}</td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="usersCount() > 0">
+  <button type="submit" class="btn btn-primary btn-block" id="addUserButton" (click)="openUserCreateDialog()">Add User</button>
+  <button type="submit" class="btn btn-secondary btn-block" id="modifyUserButton" (click)="userModifyDialog()">Update User</button>
+  <button type="submit" class="btn btn-secondary btn-block" id="deleteUserButton" (click)="userDeleteDialog()">Delete User</button>
+</div>

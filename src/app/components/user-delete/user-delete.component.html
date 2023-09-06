@@ -1,0 +1,18 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-primary text-white">Delete</div>
+          <div class="card-body">
+            <select class="form-control" [(ngModel)]="selectedUser" (ngModelChange)="onSelectUser($event)">
+              <option *ngFor="let user of users" [ngValue]="user">{{ user.firstName + ' ' + user.lastName }}</option>
+            </select><br>
+            <form>
+              <button type="submit"  *ngIf="selectedUser" class="btn btn-primary btn-block" (click)="deleteUser()">Delete User</button>
+              <button type="submit" class="btn btn-secondary btn-block" (click)="close()">Close dialog</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
